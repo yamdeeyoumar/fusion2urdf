@@ -1,0 +1,585 @@
+<?xml version="1.0" ?>
+<robot name="Hnad_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.01886193238686771 0.003261422042625433 -0.0076744488384634" rpy="0 0 0"/>
+    <mass value="0.10907275186671735"/>
+    <inertia ixx="8.7e-05" iyy="0.000123" izz="6.6e-05" ixy="1e-06" iyz="-1.6e-05" ixz="-6e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_conn_t_v8_1">
+  <inertial>
+    <origin xyz="0.0019861410728321503 0.003610442708940547 0.006694399252175069" rpy="0 0 0"/>
+    <mass value="0.00483802199399766"/>
+    <inertia ixx="2.685E-07" iyy="4.245E-07" izz="4.579E-07" ixy="2.518E-08" iyz="4.812E-08" ixz="-2.792E-08"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0.0065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_conn_t_v8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0.0065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_conn_t_v8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thumb_1_t_v5_1">
+  <inertial>
+    <origin xyz="0.012465847098384237 -0.05213808498906758 0.023905550632451804" rpy="0 0 0"/>
+    <mass value="0.006365797637059802"/>
+    <inertia ixx="2.144E-07" iyy="6.294E-07" izz="5.941E-07" ixy="-1.491E-10" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001544 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_1_t_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001544 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_1_t_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thumb_2_t_v6_1">
+  <inertial>
+    <origin xyz="0.010878598995044127 -0.02468572226941293 0.03087291366124285" rpy="0 0 0"/>
+    <mass value="0.004861020283868221"/>
+    <inertia ixx="1.619E-07" iyy="3.386E-07" izz="3.088E-07" ixy="-1.416E-10" iyz="0.00" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0005 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_2_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0005 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_2_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thumb_3_t_v6_1">
+  <inertial>
+    <origin xyz="-0.01674978134251898 -0.017433134855453527 0.022938498125762985" rpy="0 0 0"/>
+    <mass value="0.003344198424510898"/>
+    <inertia ixx="1.088E-07" iyy="1.582E-07" izz="1.343E-07" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_3_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/thumb_3_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="long_fe_t_v4__1__1">
+  <inertial>
+    <origin xyz="0.0010655669180472628 0.013662047470216161 -0.010042954724095679" rpy="0 0 0"/>
+    <mass value="0.0030289646887929457"/>
+    <inertia ixx="1E-06" iyy="1E-06" izz="1E-06" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_fe_t_v6__1__1">
+  <inertial>
+    <origin xyz="0.00851947825109871 0.0746752142803403 -0.026882353611837245" rpy="0 0 0"/>
+    <mass value="0.0037856996689290784"/>
+    <inertia ixx="1.269E-07" iyy="1.944E-07" izz="2.118E-07" ixy="2.053E-09" iyz="0.00" ixz="-1.546E-10"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_aa_t_v3__1__1">
+  <inertial>
+    <origin xyz="-0.026876238976177327 0.033635385186338844 -0.052082830720219735" rpy="0 0 0"/>
+    <mass value="0.0037617261938741034"/>
+    <inertia ixx="1.235E-07" iyy="1.996E-07" izz="1.737E-07" ixy="-1.415E-10" iyz="0.00" ixz="0.00"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="long_fe_t_v4_1">
+  <inertial>
+    <origin xyz="-0.000136121650097314 0.008224331517680549 -0.014866205582200323" rpy="0 0 0"/>
+    <mass value="0.0030289646887929457"/>
+    <inertia ixx="1E-06" iyy="1E-06" izz="1E-06" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_fe_t_v6_1">
+  <inertial>
+    <origin xyz="0.025956683906959377 0.05308859624907175 -0.024074437982690426" rpy="0 0 0"/>
+    <mass value="0.0037856996689290784"/>
+    <inertia ixx="1.269E-07" iyy="1.944E-07" izz="2.118E-07" ixy="2.053E-09" iyz="0.00" ixz="-1.546E-10"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_aa_t_v3_1">
+  <inertial>
+    <origin xyz="-0.0075945339101078 0.04102250558083094 -0.057983112975247636" rpy="0 0 0"/>
+    <mass value="0.0037617261938741034"/>
+    <inertia ixx="1.235E-07" iyy="1.996E-07" izz="1.737E-07" ixy="-1.415E-10" iyz="0.00" ixz="0.00"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="long_fe_t_v4__3__1">
+  <inertial>
+    <origin xyz="-0.003685494603313494 -0.00022872024426650803 -0.01658400865042335" rpy="0 0 0"/>
+    <mass value="0.0030289646887929457"/>
+    <inertia ixx="1E-06" iyy="1E-06" izz="1E-06" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_fe_t_v6__3__1">
+  <inertial>
+    <origin xyz="0.03392421440007972 0.015287480238046304 -0.013947040097199725" rpy="0 0 0"/>
+    <mass value="0.0037856996689290784"/>
+    <inertia ixx="1.269E-07" iyy="1.944E-07" izz="2.118E-07" ixy="2.053E-09" iyz="0.00" ixz="-1.546E-10"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_aa_t_v3__3__1">
+  <inertial>
+    <origin xyz="-0.0012432799323149162 0.03943474953036731 -0.05101939772065426" rpy="0 0 0"/>
+    <mass value="0.0037617261938741034"/>
+    <inertia ixx="1.235E-07" iyy="1.996E-07" izz="1.737E-07" ixy="-1.415E-10" iyz="0.00" ixz="0.00"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="long_fe_t_v4__2__1">
+  <inertial>
+    <origin xyz="-0.007225881654021805 0.0021237990420839258 -0.015229035696648251" rpy="0 0 0"/>
+    <mass value="0.0030289646887929457"/>
+    <inertia ixx="1E-06" iyy="1E-06" izz="1E-06" ixy="0" iyz="0" ixz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/long_fe_t_v4__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_fe_t_v6__2__1">
+  <inertial>
+    <origin xyz="0.02680674646666944 0.027184786291894542 0.0006571779665049823" rpy="0 0 0"/>
+    <mass value="0.0037856996689290784"/>
+    <inertia ixx="1.269E-07" iyy="1.944E-07" izz="2.118E-07" ixy="2.053E-09" iyz="0.00" ixz="-1.546E-10"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_fe_t_v6__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_aa_t_v3__2__1">
+  <inertial>
+    <origin xyz="-0.008201638061598363 0.05595754168524395 -0.052324404351223555" rpy="0 0 0"/>
+    <mass value="0.0037617261938741034"/>
+    <inertia ixx="1.235E-07" iyy="1.996E-07" izz="1.737E-07" ixy="-1.415E-10" iyz="0.00" ixz="0.00"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_aa_t_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_t_v3_1">
+  <inertial>
+    <origin xyz="0.06755660326616521 -0.027785038751939224 0.007974314193437528" rpy="0 0 0"/>
+    <mass value="0.004196748176029587"/>
+    <inertia ixx="1.391E-07" iyy="2.31E-07" izz="2.15E-07" ixy="-1.096E-09" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_t_v3__3__1">
+  <inertial>
+    <origin xyz="0.05761920729006521 -0.00704710554176665 -0.0066556866852391355" rpy="0 0 0"/>
+    <mass value="0.004196748176029587"/>
+    <inertia ixx="1.391E-07" iyy="2.31E-07" izz="2.15E-07" ixy="-1.096E-09" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_t_v3__1__1">
+  <inertial>
+    <origin xyz="0.03767875033741113 0.008833627983127791 -0.02179383352592475" rpy="0 0 0"/>
+    <mass value="0.004196748176029587"/>
+    <inertia ixx="1.391E-07" iyy="2.31E-07" izz="2.15E-07" ixy="-1.096E-09" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tip_t_v3__2__1">
+  <inertial>
+    <origin xyz="0.036524389411714354 0.03072214662355216 -0.04776793449795215" rpy="0 0 0"/>
+    <mass value="0.004196748176029587"/>
+    <inertia ixx="1.391E-07" iyy="2.31E-07" izz="2.15E-07" ixy="-1.096E-09" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/tip_t_v3__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="-0.013374 0.014619 -0.038931" rpy="-0.802293 0.511625 0.356124"/>
+  <parent link="base_link"/>
+  <child link="base_conn_t_v8_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.00004 -0.00000 0.00440" rpy="-0.0 -1.570796 0"/>
+  <parent link="base_conn_t_v8_1"/>
+  <child link="thumb_1_t_v5_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="0.035 0 0" rpy="-0 -0 0"/>
+  <parent link="thumb_1_t_v5_1"/>
+  <child link="thumb_2_t_v6_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.0265 0 0" rpy="0 0 0"/>
+  <parent link="thumb_2_t_v6_1"/>
+  <child link="thumb_3_t_v6_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="-0.006606 0.018199 0.042455" rpy="-1.719191 -1.279328 1.655719"/>
+  <parent link="base_link"/>
+  <child link="long_fe_t_v4__1__1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="0.0051 -0 0" rpy="1.570796 -0.0 -0.0"/>
+  <parent link="long_fe_t_v4__1__1"/>
+  <child link="tip_fe_t_v6__1__1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="0.0358 0 0" rpy="-1.570796 -0.0 3.141593"/>
+  <parent link="tip_fe_t_v6__1__1"/>
+  <child link="tip_aa_t_v3__1__1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 8" type="continuous">
+  <origin xyz="0.011335 0.015375 0.043901" rpy="-1.407286 -1.279414 1.328203"/>
+  <parent link="base_link"/>
+  <child link="long_fe_t_v4_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 9" type="continuous">
+  <origin xyz="0.0051 0 0" rpy="1.570796 0.0 0.0"/>
+  <parent link="long_fe_t_v4_1"/>
+  <child link="tip_fe_t_v6_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 10" type="continuous">
+  <origin xyz="0.0358 0 0" rpy="-1.570796 0.0 3.141593"/>
+  <parent link="tip_fe_t_v6_1"/>
+  <child link="tip_aa_t_v3_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 11" type="continuous">
+  <origin xyz="0.030992 0.016577 0.040886" rpy="-0.915197 -1.221674 0.941019"/>
+  <parent link="base_link"/>
+  <child link="long_fe_t_v4__3__1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 12" type="continuous">
+  <origin xyz="0.0051 0 0" rpy="1.570796 0.0 -0.0"/>
+  <parent link="long_fe_t_v4__3__1"/>
+  <child link="tip_fe_t_v6__3__1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="0.0358 0 0" rpy="-1.570796 0.0 3.141593"/>
+  <parent link="tip_fe_t_v6__3__1"/>
+  <child link="tip_aa_t_v3__3__1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="0.050118 0.018605 0.031706" rpy="-0.561317 -1.05998 0.685509"/>
+  <parent link="base_link"/>
+  <child link="long_fe_t_v4__2__1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="0.0051 0 0" rpy="1.570796 -0.0 -0.0"/>
+  <parent link="long_fe_t_v4__2__1"/>
+  <child link="tip_fe_t_v6__2__1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="0.0358 0 0" rpy="-1.570796 -0.0 3.141593"/>
+  <parent link="tip_fe_t_v6__2__1"/>
+  <child link="tip_aa_t_v3__2__1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 17" type="continuous">
+  <origin xyz="-0.022 0 0" rpy="-0.0 -0.0 3.141593"/>
+  <parent link="tip_aa_t_v3__1__1"/>
+  <child link="tip_t_v3_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 18" type="continuous">
+  <origin xyz="-0.022 0 0" rpy="0.0 -0.0 -3.141593"/>
+  <parent link="tip_aa_t_v3_1"/>
+  <child link="tip_t_v3__3__1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 19" type="continuous">
+  <origin xyz="-0.022 0 0" rpy="-0.0 -0.0 3.141593"/>
+  <parent link="tip_aa_t_v3__3__1"/>
+  <child link="tip_t_v3__1__1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 20" type="continuous">
+  <origin xyz="-0.022 0 0" rpy="-0.0 0.0 3.141593"/>
+  <parent link="tip_aa_t_v3__2__1"/>
+  <child link="tip_t_v3__2__1"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+</robot>
