@@ -17,11 +17,11 @@ def copy_occs(root):
     """    
     duplicate all the components
     """    
+    name_map = {}
     def copy_body(allOccs, occs):
         """    
         copy the old occs to new component
         """
-        
         bodies = occs.bRepBodies
         transform = adsk.core.Matrix3D.create()
         
@@ -38,54 +38,55 @@ def copy_occs(root):
         for i in range(bodies.count):
             body = bodies.item(i)
             body.copyToComponent(new_occs)
+        return new_occs.component.name
     
     allOccs = root.occurrences
     oldOccs = []
     coppy_list = [occs for occs in allOccs]
-    for occs in coppy_list:
+    for index, occs in enumerate(coppy_list):
         if occs.bRepBodies.count > 0:
-            copy_body(allOccs, occs)
+            new_name=copy_body(allOccs, occs)
+            old_name = f"old_component" if index == 0 else f"old_component ({index})"
+            name_map[old_name] = new_name
             oldOccs.append(occs)
 
     for occs in oldOccs:
         occs.component.name = 'old_component'
 
+    return name_map
 
-def export_stl(design, save_dir, components):  
+
+def export_stl(design, save_dir, root, name_map):
     """
-    export stl files into "save_dir/"
-    
-    Parameters
-    ----------
-    design: adsk.fusion.Design.cast(product)
-    save_dir: str
-        directory path to save
-    components: design.allComponents
+    Export STL files from old_component parts using mapped URDF link names.
     """
-          
-    # create a single exportManager instance
     exportMgr = design.exportManager
-    # get the script location
-    try: os.mkdir(save_dir + '/meshes')
-    except: pass
-    scriptDir = save_dir + '/meshes'  
-    # export the occurrence one by one in the component to a specified file
-    for component in components:
-        allOccus = component.allOccurrences
-        for occ in allOccus:
-            if 'old_component' not in occ.component.name:
-                try:
-                    print(occ.component.name)
-                    fileName = scriptDir + "/" + occ.component.name              
-                    # create stl exportOptions
-                    stlExportOptions = exportMgr.createSTLExportOptions(occ, fileName)
-                    stlExportOptions.sendToPrintUtility = False
-                    stlExportOptions.isBinaryFormat = True
-                    # options are .MeshRefinementLow .MeshRefinementMedium .MeshRefinementHigh
-                    stlExportOptions.meshRefinement = adsk.fusion.MeshRefinementSettings.MeshRefinementLow
-                    exportMgr.execute(stlExportOptions)
-                except:
-                    print('Component ' + occ.component.name + ' has something wrong.')
+
+    try:
+        os.mkdir(save_dir + '/meshes')
+    except:
+        pass
+    scriptDir = save_dir + '/meshes'
+
+    all_occs = root.occurrences
+    for occ in all_occs:
+        comp = occ.component
+        if 'old_component' not in comp.name:
+            continue
+
+        try:
+            body = comp.bRepBodies.item(0)
+            new_name = name_map.get(comp.name, comp.name)
+            fileName = scriptDir + "/" + new_name
+
+            stlExportOptions = exportMgr.createSTLExportOptions(body, fileName)
+            stlExportOptions.sendToPrintUtility = False
+            stlExportOptions.isBinaryFormat = True
+            stlExportOptions.meshRefinement = adsk.fusion.MeshRefinementSettings.MeshRefinementLow
+
+            exportMgr.execute(stlExportOptions)
+        except:
+            print('Component ' + comp.name + ' failed to export.')
 
 
 def file_dialog(ui):     

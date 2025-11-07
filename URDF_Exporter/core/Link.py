@@ -125,3 +125,20 @@ def make_inertial_dict(root, msg):
             inertial_dict[re.sub('[ :()]', '_', occs.name)] = occs_dict
 
     return inertial_dict, msg
+
+def make_links_xyz_dict(root):
+    """
+    Returns a dictionary mapping each link name to its position [x, y, z] in meters.
+    """
+    links_xyz_dict = {}
+    all_occs = root.occurrences
+
+    for occ in all_occs:
+        name = re.sub('[ :()]', '_', occ.name)
+        transform = occ.transform
+        translation = transform.translation
+        xyz = [translation.x / 100.0, translation.y / 100.0, translation.z / 100.0]  # Convert cm → m
+        links_xyz_dict[name] = xyz
+
+    return links_xyz_dict
+  

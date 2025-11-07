@@ -10,10 +10,21 @@ from xml.etree.ElementTree import Element, SubElement
 from . import Link, Joint
 from ..utils import utils
 
+# -*- coding: utf-8 -*-
+"""
+Created on Sun May 12 20:46:26 2019
+
+@author: syuntoku
+"""
+
+import adsk, os
+from xml.etree.ElementTree import Element, SubElement
+from . import Link, Joint
+from ..utils import utils
+
 def write_link_urdf(joints_dict, repo, links_xyz_dict, file_name, inertial_dict):
     """
     Write links information into urdf "repo/file_name"
-    
     
     Parameters
     ----------
@@ -27,7 +38,7 @@ def write_link_urdf(joints_dict, repo, links_xyz_dict, file_name, inertial_dict)
         urdf full path
     inertial_dict:
         information of the each inertial
-    
+
     Note
     ----------
     In this function, links_xyz_dict is set for write_joint_tran_urdf.
@@ -48,12 +59,26 @@ def write_link_urdf(joints_dict, repo, links_xyz_dict, file_name, inertial_dict)
         # others
         for joint in joints_dict:
             name = joints_dict[joint]['child']
-            center_of_mass = \
-                [ i-j for i, j in zip(inertial_dict[name]['center_of_mass'], joints_dict[joint]['xyz'])]
-            link = Link.Link(name=name, xyz=joints_dict[joint]['xyz'],\
-                center_of_mass=center_of_mass,\
-                repo=repo, mass=inertial_dict[name]['mass'],\
-                inertia_tensor=inertial_dict[name]['inertia'])
+            # compute COM offset relative to joint; if no joint (root), just use COM
+            try:
+                com_parent_offset = [
+                    i - j for i, j in zip(
+                        inertial_dict[name]['center_of_mass'],
+                        joints_dict[joint]['xyz']
+                    )
+                ]
+            except KeyError:
+                # this link has no parent joint (root link)
+                com_parent_offset = inertial_dict[name]['center_of_mass']
+
+            link = Link.Link(
+                name=name,
+                xyz=joints_dict[joint]['xyz'],
+                center_of_mass=com_parent_offset,
+                repo=repo,
+                mass=inertial_dict[name]['mass'],
+                inertia_tensor=inertial_dict[name]['inertia']
+            )
             links_xyz_dict[link.name] = link.xyz            
             link.make_link_xml()
             f.write(link.link_xml)
@@ -63,20 +88,7 @@ def write_link_urdf(joints_dict, repo, links_xyz_dict, file_name, inertial_dict)
 def write_joint_urdf(joints_dict, repo, links_xyz_dict, file_name):
     """
     Write joints and transmission information into urdf "repo/file_name"
-    
-    
-    Parameters
-    ----------
-    joints_dict: dict
-        information of the each joint
-    repo: str
-        the name of the repository to save the xml file
-    links_xyz_dict: dict
-        xyz information of the each link
-    file_name: str
-        urdf full path
     """
-    
     with open(file_name, mode='a') as f:
         for j in joints_dict:
             parent = joints_dict[j]['parent']
@@ -86,23 +98,34 @@ def write_joint_urdf(joints_dict, repo, links_xyz_dict, file_name):
             lower_limit = joints_dict[j]['lower_limit']
             try:
                 xyz = [round(p-c, 6) for p, c in \
-                    zip(links_xyz_dict[parent], links_xyz_dict[child])]  # xyz = parent - child
+                    zip(links_xyz_dict[parent], links_xyz_dict[child])]
             except KeyError as ke:
                 app = adsk.core.Application.get()
                 ui = app.userInterface
-                ui.messageBox("There seems to be an error with the connection between\n\n%s\nand\n%s\n\nCheck \
-whether the connections\nparent=component2=%s\nchild=component1=%s\nare correct or if you need \
-to swap component1<=>component2"
-                % (parent, child, parent, child), "Error!")
+                ui.messageBox(
+                    "There seems to be an error with the connection between\n\n%s\nand\n%s\n\nCheck "
+                    "whether the connections\nparent=component2=%s\nchild=component1=%s"
+                    % (parent, child, parent, child), "Error!"
+                )
                 quit()
-                
-            joint = Joint.Joint(name=j, joint_type = joint_type, xyz=xyz, \
-            axis=joints_dict[j]['axis'], parent=parent, child=child, \
-            upper_limit=upper_limit, lower_limit=lower_limit)
+
+            joint = Joint.Joint(
+                name=j,
+                joint_type=joint_type,
+                xyz=xyz,
+                axis=joints_dict[j]['axis'],
+                parent=parent,
+                child=child,
+                upper_limit=upper_limit,
+                lower_limit=lower_limit
+            )
             joint.make_joint_xml()
             joint.make_transmission_xml()
             f.write(joint.joint_xml)
             f.write('\n')
+
+# ... rest of file unchanged ...
+
 
 def write_gazebo_endtag(file_name):
     """
